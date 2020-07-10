@@ -1,3 +1,4 @@
+import errorCard from './Error'
 const cardsContainer = document.querySelector('.cards-container')
 
 //loop through each item in the object, then loop through that array item and pass the item into the component.
@@ -9,6 +10,7 @@ axios.get('https://lambda-times-backend.herokuapp.com/articles')
             })
         }
     })
+    .catch(err => errorCard(err.response.status))
 
 function createArticle(articleObj) {
     const cardDiv = document.createElement('div')
